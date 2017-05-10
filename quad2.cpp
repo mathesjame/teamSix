@@ -34,14 +34,14 @@ float calcError(){
 	}
 	
 	
-	float newErrorI = 0;
-	
-	newErrorP = (newErrorP-oldError)/10;
-	//calculate I
-	
 	float newErrorD = 0;
 	
-	//calculate D
+	newErrorD = (newErrorP-oldError)/10;
+	//calculate I
+	
+	float newErrorI = 0;
+	
+	//calculate I
 	
 	
 	float newError = newErrorP + newErrorI + newErrorD;
@@ -99,7 +99,7 @@ int main (){
 		turn(error);
 		printf("%f\n", error);
 		
-		sleep1(0,100000);
+		sleep1(0,100);
 	}
 	
 	return 0;}
