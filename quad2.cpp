@@ -4,6 +4,8 @@
 
 int samples = 64;
 char row[64];
+int oldError = 0;
+float error = 0;
 
 
 
@@ -24,14 +26,25 @@ int populate(){
 //Calculates the Error value for stage 2/3
 float calcError(){
 	
-	float newError = 0;
-	
+	float newErrorP = 0;
+	oldError = error;
 	for(int i = 0; i < samples; i++){
-		newError = newError + (i-(samples/2))*row[i];
+		newErrorP = newErrorP + (i-(samples/2))*row[i];
 		
 	}
 	
 	
+	float newErrorI = 0;
+	
+	newErrorP = (newErrorP-oldError)/10;
+	//calculate I
+	
+	float newErrorD = 0;
+	
+	//calculate D
+	
+	
+	float newError = newErrorP + newErrorI + newErrorD;
 	
 return newError;}
 
@@ -60,7 +73,7 @@ int main (){
 	int thresh = 50;
 	int high = 0;
 	int low = 10000;
-	float error = 0;
+	
 	
 	populate();
 	
@@ -86,7 +99,7 @@ int main (){
 		turn(error);
 		printf("%f\n", error);
 		
-		sleep1(1,0);
+		sleep1(0,100000);
 	}
 	
 	return 0;}
