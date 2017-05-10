@@ -82,7 +82,8 @@ int main (){
 		//}
 		
 		error = calcError();
-		
+		//Scale error to fit into motor
+		turn(error);
 		printf("%f\n", error);
 		
 		sleep1(1,0);
