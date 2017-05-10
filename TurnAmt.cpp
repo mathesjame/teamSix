@@ -35,6 +35,21 @@ float calcError(){
 	
 return newError;}
 
+int turn(double pidTurn){
+	if (errCalc < 0){	
+		set_motor(1, pidTurn);
+		set_motor(2, -pidTurn/2);
+	}
+	else if (errCalc > 0){
+		set_motor(1, -pidTurn/2);
+		set_motor(2, pidTurn);
+		
+	}
+	else {
+		set_motor(1, pidTurn);
+		set_motor(2, pidTurn);
+	}
+}
 
 
 int main (){
