@@ -18,8 +18,9 @@ int populate(){
 	
 	//Convert To 1s and 0s
 	for (int i = 0; i < samples; i++){
-		if(row[i]<thresh){printf("0");}
-		if(row[i]>thresh){printf("1");}
+		//Array values replaced with 0s or 1s based on their relationships to thresh
+		if(row[i]<thresh){printf("0"); row[i]=0;}
+		if(row[i]>thresh){printf("1"); row[i]=1;}
 		
 	}
 	
@@ -31,7 +32,8 @@ float errCalc(){
 	float newErrorP = 0;
 	oldError = error;
 	for(int i = 0; i < samples; i++){
-		newErrorP = newErrorP + (i-(samples/2))*row[i];
+		//Added 255 Multiplier
+		newErrorP = newErrorP + (i-(samples/2))*row[i]*255;
 		
 	}
 	
