@@ -45,7 +45,7 @@ float errCalc(){
 	
 	//calculate I
 	
-	
+	//Check D and I calculation before uncommenting
 	float newError = newErrorP;// + newErrorI + newErrorD;
 	
 return newError;}
@@ -72,16 +72,13 @@ int main (){
 	init();
 	
 	
-	
-	
-	int high = 0;
-	int low = 10000;
-	
-	
 	populate();
 	
 	display_picture(3,0);
 	
+	//Calculate the threshold value for deciding between white lines and black
+	int high = 0;
+	int low = 10000;
 	for (int i = 0; i < 64; i++){
 		if(row[i]>high){high = row[i];}
 		if(row[i]<low){low = row[i];}
@@ -90,15 +87,17 @@ int main (){
 	thresh = (high-low)/2;
 	
 	while(true){
+		//Take image again and recalculate line position
 		populate();
 		
-		
+		//Get new 
 		error = (int)errCalc()*0.02;//Check This scale factor
 		//Scale error to fit into motor
 		if(error>190){error = 190;}
 		if(error<-190){error = -190;}
-		
+		//Send error signal to turn
 		turn(error);
+		
 		printf("%f\n", error);
 		
 		sleep1(0,1000);
