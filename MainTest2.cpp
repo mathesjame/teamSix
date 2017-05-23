@@ -69,6 +69,22 @@ int turn(double pidTurn){
 	return 0;
 }
 
+// if no white line? reverse?
+// if err(all black = 0?)
+//     set motors to go reverse until can see white
+
+// if camera sees all white line(T junction)? turn left?
+// if err(all white = 0?)
+//    set motors to turn left until 1 white line, then back to normal pid
+
+// if deadend? reverse on angle? turn 180 degrees?
+// if err(all black = 0?)
+//    if prevous pictures had white line, then set motors to reverse? or set motors to turn 180 degrees?
+//    then go forwards as normal
+
+// how to stop it driving the way it's come from?
+// if turning corner or at deadends and has turned around, don't turn down same path as it's come from
+
 
 int main (){
 	init();
