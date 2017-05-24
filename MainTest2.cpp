@@ -12,9 +12,9 @@ int doReverse = 0;
 int passedThree = 0;
 double kP = 0.007;
 
-double errorScale = 0.05;//Set to 0.02
+double errorScale = 0.02;//Set to 0.02
 
-int baseMotorSpeed = -200;//Set to -80
+int baseMotorSpeed = -80;//Set to -80
 int leftMotor = 0;
 int rightMotor = 0;
 
