@@ -32,7 +32,7 @@ init ();
 
 return 0;
 } 
-\
+
 
 // Code for AVC to navigate trough maze.
 // FRONT sensor reading
